@@ -1,0 +1,12 @@
+streamlit
+pandas
+requests
+pyyaml
+streamlit-echarts
+streamlit-autorefresh
+icmplib
+dnspython
+numpy
+filelock
+python-dotenv
+whois

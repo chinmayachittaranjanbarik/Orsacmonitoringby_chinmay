@@ -1,0 +1,93 @@
+# Configuration for ORSAC Website Monitor (enhanced)
+# - Top-level `settings` provide defaults and can be overridden per-site.
+# - Each site supports enabling/disabling, per-site timeout, ICMP toggle, and optional keyword check.
+settings:
+  response_time_threshold: 3000   # ms — above this, site marked "Up (Slow)"
+  ssl_alert_days: 30              # days — used for SSL coloring/alerts
+  monitor_interval: 1800          # seconds (default backend run interval)
+  default_timeout: 10             # seconds for HTTP requests (can be overridden per-site)
+  use_icmp_by_default: true       # whether to attempt ICMP ping by default
+  log_file: "website_monitor_log.csv"
+
+sites:
+  - name: "Forest GIS (OFMS)"
+    url: "https://odishaforestgis.in/ofms/"
+    enabled: true
+    timeout: 10
+    expected_status: 200
+    use_icmp: true
+    check_keyword: true
+    keyword: "Odisha Forest"
+    notes: "Main GIS application"
+
+  - name: "SMPB Odisha"
+    url: "https://smpbodisha.in/"
+    enabled: true
+    timeout: 10
+    expected_status: 200
+    use_icmp: true
+    check_keyword: true
+    keyword: "Medicinal Plants"
+
+  - name: "CAMPA Odisha"
+    url: "https://campa.odisha.gov.in/"
+    enabled: true
+    timeout: 10
+    expected_status: 200
+    use_icmp: true
+    check_keyword: true
+    keyword: "CAMPA"
+
+  - name: "Kendu Leaves Portal"
+    url: "https://kenduleaves.odisha.gov.in/"
+    enabled: true
+    timeout: 12
+    expected_status: 200
+    use_icmp: true
+    check_keyword: true
+    keyword: "Kendu"
+
+  - name: "Odisha Forest Main Portal"
+    url: "https://odishaforest.in/"
+    enabled: true
+    timeout: 10
+    expected_status: 200
+    use_icmp: true
+    check_keyword: true
+    keyword: "Forest"
+
+  - name: "Wildlife Anukampa"
+    url: "https://www.odwlanukampa.in/index.php/home/applications"
+    enabled: true
+    timeout: 12
+    expected_status: 200
+    use_icmp: false
+    check_keyword: true
+    keyword: "Anukampa"
+
+  - name: "Odisha Bamboo"
+    url: "https://www.odishabamboo.org/"
+    enabled: true
+    timeout: 10
+    expected_status: 200
+    use_icmp: true
+    check_keyword: true
+    keyword: "Bamboo"
+
+  - name: "OFS Disposition List (HRD)"
+    url: "https://odishaforest.in/hrd/ofs-disposition-list-sb"
+    enabled: true
+    timeout: 10
+    expected_status: 200
+    use_icmp: false
+    check_keyword: true
+    keyword: "Disposition"
+
+  - name: "TT Permit Odisha"
+    url: "https://www.ttpermitodisha.in/"
+    enabled: true
+    timeout: 10
+    expected_status: 200
+    use_icmp: true
+    check_keyword: true
+    keyword: "Permit"
